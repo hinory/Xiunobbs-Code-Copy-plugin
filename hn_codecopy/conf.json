@@ -1,0 +1,9 @@
+{
+    "name": "代码块一键复制",
+    "brief": "给帖子代码块添加一键复制按钮，自动唯一ID，多代码块无冲突，适用于TinyMCE编辑器，其他编辑器请自行适配",
+    "version": "1.0",
+    "bbs_version": "4.0",
+    "author": "分享版",
+    "installed": 1,
+    "enable": 1
+}

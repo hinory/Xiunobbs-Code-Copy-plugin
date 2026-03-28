@@ -1,0 +1,49 @@
+<!-- 代码块一键复制插件 | 自动唯一ID | 无冲突 -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('pre code').forEach((block, index) => {
+        const codeId = 'code-block-' + index;
+        block.id = codeId;
+
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'code-copy-btn';
+        copyBtn.textContent = '复制代码';
+
+        copyBtn.onclick = function() {
+            const codeText = document.getElementById(codeId).innerText.trim();
+            navigator.clipboard.writeText(codeText).then(() => {
+                copyBtn.textContent = '复制成功！';
+                setTimeout(() => copyBtn.textContent = '复制代码', 1500);
+            }).catch(() => {
+                copyBtn.textContent = '复制失败';
+                setTimeout(() => copyBtn.textContent = '复制代码', 1500);
+            });
+        };
+
+        const pre = block.parentElement;
+        pre.style.position = 'relative';
+        pre.appendChild(copyBtn);
+    });
+});
+</script>
+
+<style>
+.code-copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    padding: 4px 10px;
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #495057;
+    cursor: pointer;
+    z-index: 99;
+    transition: all 0.2s;
+}
+.code-copy-btn:hover {
+    background: #e9ecef;
+    border-color: #adb5bd;
+}
+</style>
